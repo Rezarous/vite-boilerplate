@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1>TWA + Vite + React</h1>
+      <h1>سلام خره!</h1>
       <div className='card'>
         <button onClick={() => setCount((count) => count + 1)}>
           من خرم {count}
