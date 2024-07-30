@@ -15,7 +15,7 @@ function App() {
         </button>
       </div>
       <div className='card'>
-        <button onClick={() => WebApp.showAlert(`${count}  : میزان خریت من `)}>
+        <button onClick={() => WebApp.showAlert(`${count} : میزان خریت من `)}>
           Show Alert...
         </button>
       </div>
