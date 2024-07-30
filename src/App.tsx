@@ -1,39 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import config from './config'
+import { useState } from 'react'
+import './App.css'
 
-const App: React.FC = () => {
-  const [username, setUsername] = useState<string | null>(null)
-  const [error, setError] = useState<boolean>(false)
+import WebApp from '@twa-dev/sdk'
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const user = urlParams.get('username')
-    const err = urlParams.get('error')
-
-    if (user) {
-      setUsername(user)
-    } else if (err) {
-      setError(true)
-    }
-
-    const script = document.createElement('script')
-    script.async = true
-    script.src = 'https://telegram.org/js/telegram-widget.js?9'
-    script.setAttribute('data-telegram-login', 'YOUR_BOT_USERNAME')
-    script.setAttribute('data-size', 'large')
-    script.setAttribute('data-auth-url', `${config.backendUrl}/auth`)
-    script.setAttribute('data-request-access', 'write')
-    document.body.appendChild(script)
-  }, [])
+function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <div className='App'>
-      {error ? (
-        <h1>Error...</h1>
-      ) : (
-        <h1>Hello, {username ? username : '...'}</h1>
-      )}
-    </div>
+    <>
+      <h1>سلام خره!</h1>
+      <div className='card'>
+        <button onClick={() => setCount((count) => count + 1)}>
+          من خرم {count}
+        </button>
+      </div>
+      <div className='card'>
+        <button onClick={() => WebApp.showAlert(`${count} : میزان خریت من `)}>
+          Show Alert...
+        </button>
+      </div>
+    </>
   )
 }
 

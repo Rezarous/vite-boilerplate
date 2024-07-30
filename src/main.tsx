@@ -5,10 +5,10 @@ import './index.css'
 
 import WebApp from '@twa-dev/sdk'
 
-WebApp.ready()
+WebApp.ready();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 )
